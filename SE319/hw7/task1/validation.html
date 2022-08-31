@@ -1,0 +1,79 @@
+<html>
+
+<head>
+<meta charset = "utf-8"/>
+<style>
+.errorMessage{color: red;}
+</style>
+<script src="./validation.js"></script>
+<title>Validation Form</title>
+</head>
+
+<body>
+<h1>
+Validation Form
+</h1>
+
+  <form id="formUserDetails" action="" >
+    <fieldset>
+      <legend>User Details</legend>
+		<p id="FirstName">
+			<label for="txtFirstName">First Name:</label>
+			<input id="txtFirstName" name="txtFirstName" type="text" />
+		</p>
+
+		<p id="LastName">
+		<label for="txtLastName">Last Name:</label>
+        <input id="txtLastName" name="txtLastName" type="text" />
+		</p>
+
+		<p id="Gender">
+			<label for="selectGender">selectGender:</label>
+			<select name="selectGender">
+				<option value= ""> -- select an option -- </option>
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+			</select>
+		</p>
+
+		<p id="State">
+			<label for="selectState">selectState: </label>
+			<select name="selectState">
+				<option value= ""> -- select an option -- </option>
+				<option value="california">California</option>
+				<option value="florida">Florida</option>
+				<option value="newyork">New York</option>
+				<option value="texas">Texas</option>
+				<option value="hawaii">Hawaii</option>
+				<option value="washington">Washington</option>
+				<option value="colorado">Colorado</option>
+				<option value="virginia">Virginia</option>
+				<option value="iowa">Iowa</option>
+				<option value="arizona">Arizona</option>
+			</select>
+		</p>
+
+    <p id="Email">
+      <label for="txtEmail">Email</label>
+      <input id="txtEmail" name="txtEmail" type="text" />
+
+    </p>
+    <p id="Phone">
+      <label for="txtPhone">Phone: </label>
+      <input id="txtPhone" name="txtPhone" type="text" />
+
+    </p>
+    <p id="Address">
+      <label for="txtAddress">Address: </label>
+      <input id="txtAddress" name="txtAddress" type="text" />
+
+    </p>
+        <input onCLick="validate()" type="button" id="btnValidate" name="btnValidate" value="Validate"/>
+        <p id="FinalResult">
+			<label id="labelNotifytxtFinalResult" class="errorMessage">Error</label>
+        </p>
+    </fieldset>
+  </form>
+</body>
+
+</html>

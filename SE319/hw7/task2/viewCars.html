@@ -1,0 +1,93 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>View Cars</title>
+
+</head>
+<style>
+  table, th , td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+
+  table tr:nth-child(odd) {
+    background-color: #f1f1f1;
+  }
+
+  table tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+  </style>
+
+<body>
+
+  <!-- #TODO Table goes here -->
+
+  <div ng-app="myApp" ng-controller="carsCrtl">
+    Manufacturer: <select id="selectManufacturer" name="selectManufacturer" ng-model="selectedCars" value="">
+    <option value="">All</option>
+    <option ng-repeat="x in cars" value="{{x.manufacturer}}">{{x.manufacturer}}
+    </option>
+    </select>
+    <table>
+
+      <tr ng-init="num=1">
+
+      <th>Manufacturer</th>
+      <th>Model </th>
+      <th > <label id="lblYearColumn" ng-click="orderByMe('year','-year')">Year</label> </th>
+      <th>Stock</th>
+      <th>Price</th>
+      <th>Option</th>
+      </tr>
+
+      <tbody>
+      <tr ng-repeat="x in cars |filter:selectedCars | orderBy: myOrderBy">
+          <td>{{x.manufacturer}}</td>
+          <td>{{x.model}}</td>
+          <td>{{x.year}}</td>
+          <td>{{x.stock}}</td>
+          <td>{{x.price | currency }}</td>
+          <td><button ng-init="x.stock" ng-click="x.stock =x.stock+1">increment</button></td>
+        </tr>
+
+        </tbody>
+
+
+
+    </table>
+
+
+
+    </div>
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <script src="cars.js"></script>
+  <script>
+    var toggle =false;
+  	var app = angular.module('myApp', []);
+    app.controller('carsCrtl', function($scope) {
+    $scope.cars =cars;
+
+    $scope.orderByMe = function(x, y ) {
+      if(toggle)
+      {
+        $scope.myOrderBy = x;
+      }
+      else
+      {
+        $scope.myOrderBy = y;
+      }
+      toggle =!toggle;
+    }
+
+});
+  </script>
+</body>
+</html>
