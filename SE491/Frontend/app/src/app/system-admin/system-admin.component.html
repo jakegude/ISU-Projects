@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>{{ user.name }}</h1>
+            <br>
+            <h3>Create New Account</h3>
+            <label for="name"><b>Name</b></label>
+            <input type="text" placeholder="Enter Name" name="name" formControlName="name" class="form-control">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" formControlName="username" class="form-control">
+            <label for="email"><b>E-Mail</b></label>
+            <input type="text" placeholder="Enter E-Mail" name="email" formControlName="email" class="form-control">
+            <label for="role"><b>Role</b></label>
+            <form name="roleform" id="roleform">
+                <select name="role" id="role">
+                    <option value="student" selected="">Student</option>
+                    <option value="instructor" selected="">Instructor</option>
+                    <option value="client" selected="">Client</option>
+                    <option value="advisr" selected="">Advisor</option>
+                    <option value="faculty" selected="">Faculty Review Panel</option>
+                    <option value="industy" selected="">Industry Review Panel</option>
+                    <option value="admin" selected="">Admin</option>
+                    <option value="" selected="">Select Role</option>
+                </select>
+            </form>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" formControlName="password" class="form-control">
+            <br>
+            <input type="submit" name="submitNewAccount" value="Submit New Account" formControlName="submit" class="form-control">
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>	
+</div>

@@ -1,0 +1,189 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Project Proposal Form</h1>
+            <form [formGroup]="ProjetcProposalForm" (ngSubmit)="onProposalFormSubmit()">
+                <div>
+                    <label for="cname"><b>Client Name</b></label>
+                    <input id="proposalClientName" type="text" placeholder="Enter Client Name" name="cname" formControlName="clientName" class="form-control ">
+                    <br>
+                    <ng-container *ngIf="pf.clientName.errors && pf.clientName.touched && pf.clientName.invalid && pf.clientName.errors.required">
+                        <div class="alert alert-danger">
+                                    <div>Field is required.</div>
+                        </div>
+                    </ng-container>
+                    <br>
+
+                    <label for="sname"><b>Submitter Name</b></label>
+                    <input id="proposalSubmitterName" type="text" placeholder="Enter Submitter Name" name="sname" formControlName="submitterName" class="form-control ">
+                    <br>
+                    <ng-container *ngIf="pf.submitterName.errors && pf.submitterName.touched && pf.submitterName.invalid && pf.submitterName.errors.required">
+                        <div class="alert alert-danger">
+                                    <div>Field is required.</div>
+                        </div>
+                    </ng-container>
+                    <br>
+
+                    <label for="pcname">
+                        <b>Point of Contact Name</b> <br>
+                        <h6>Please provide the name of the point of contact.</h6>
+                    </label>
+                    <input id="proposalPCName" type="text" placeholder="Enter Point of Contact Name" name="pcname" formControlName="pointOfContactName" class="form-control ">
+                    <br>
+                    <ng-container *ngIf="pf.pointOfContactName.errors && pf.pointOfContactName.touched && pf.pointOfContactName.invalid && pf.pointOfContactName.errors.required">
+                        <div class="alert alert-danger">
+                                    <div>Field is required.</div>
+                        </div>
+                    </ng-container>
+                    <br>
+
+                    <label for="pcemail">
+                        <b>Point of Contact Email</b> <br>
+                        <h6>Please provide the email of the point of contact.</h6>
+                    </label>
+                    <input id="proposalPCEmail" type="email" placeholder="Enter Point of Contact Email" name="pcemail" formControlName="pointOfContactEmail" class="form-control ">
+                    <br>
+                    <ng-container *ngIf="pf.pointOfContactEmail.errors && pf.pointOfContactEmail.touched && pf.pointOfContactEmail.invalid && pf.pointOfContactEmail.errors.required">
+                        <div class="alert alert-danger">
+                                    <div>Field is required.</div>
+                        </div>
+                    </ng-container>
+                    <br>
+                    <ng-container *ngIf="pf.pointOfContactEmail.errors && pf.pointOfContactEmail.touched && pf.pointOfContactEmail.invalid">
+                        <div class="alert alert-danger">
+                                    <div>Email must be in the form of emailaddress@email.com.</div>
+                        </div>
+                  </ng-container>
+                    <br>
+
+                    <label for="ptitle"><b>Project Title</b></label>
+                    <input id="proposalTitle" type="text" placeholder="Enter Project Title" name="ptitle" formControlName="projectTitle" class="form-control ">
+                    <br>
+                    <ng-container *ngIf="pf.projectTitle.errors && pf.projectTitle.touched && pf.projectTitle.invalid && pf.projectTitle.errors.required">
+                        <div class="alert alert-danger">
+                                    <div>Field is required.</div>
+                        </div>
+                    </ng-container>
+                    <br>
+
+                    <label for="pab">
+                        <b>Project Abstract</b><br>
+                        <h6>Please include all project goals, design constraints, and technical approaches and tools.</h6>
+                    </label>
+                    <textarea id="proposalAbstract" rows="5" style="resize:none" placeholder="Enter Project Abstract" name="pab" formControlName="projectAbstract" class="form-control "></textarea>
+                    <br>
+                    <ng-container *ngIf="pf.projectAbstract.errors && pf.projectAbstract.touched && pf.projectAbstract.invalid && pf.projectAbstract.errors.required">
+                        <div class="alert alert-danger">
+                                    <div>Field is required.</div>
+                        </div>
+                    </ng-container>
+                    <br>
+
+                    <label for="pdel">
+                        <b>Project Deliverables</b><br>
+                        <h6>Please include expected schedule, as well as at least one deliverable, as appropriate for a two-semester undergraduate project. Projects cannot be open ended.</h6>
+                    </label>
+                    <textarea id="proposalDeliverables" rows="5" style="resize:none" type="text" placeholder="Enter Project Deliverables" name="pdel" formControlName="projectDeliverables" class="form-control "></textarea>
+                    <br>
+                    <ng-container *ngIf="pf.projectDeliverables.errors && pf.projectDeliverables.touched && pf.projectDeliverables.invalid && pf.projectDeliverables.errors.required">
+                        <div class="alert alert-danger">
+                                    <div>Field is required.</div>
+                        </div>
+                    </ng-container>
+                    <br>
+
+                    <label for="psr">
+                        <b>Project Specialized Resources</b><br>
+                        <h6>Please list any specialized resources to be provided by client.</h6>
+                    </label>
+                    <input id="proposalSpecializedResources" type="text" placeholder="Enter Project Specialized Resources" name="psr" formControlName="specializedResources" class="form-control ">
+                    <br>
+                    <ng-container *ngIf="pf.specializedResources.errors && pf.specializedResources.touched && pf.specializedResources.invalid && pf.specializedResources.errors.required">
+                        <div class="alert alert-danger">
+                                    <div>Field is required.</div>
+                        </div>
+                    </ng-container>
+                    <br>
+
+                    <label for="pfr">
+                        <b>Project Financials Resources</b><br>
+                        <h6>Note that ISU/ECpE will provide general resources, including access to hardware and software resources in ECpE teaching and research labs as needed. To help defray the
+                        staffing and other costs associated with supporting our senior design program, for industry projects we are requesting a $5,000 donation ($1,000 for smaller startup companies)
+                        for each project that is ultimately selected and assigned to a student team.</h6>
+                    </label>
+                    <input id="proposalFinancialResources" type="text" placeholder="Enter Project Financials Resources" name="pfr" formControlName="financialResources" class="form-control ">
+                    <br>
+                    <ng-container *ngIf="pf.financialResources.errors && pf.financialResources.touched && pf.financialResources.invalid && pf.financialResources.errors.required">
+                        <div class="alert alert-danger">
+                                    <div>Field is required.</div>
+                        </div>
+                    </ng-container>
+                    <br>
+                    
+                    <label><b>Preferred Students</b></label>
+                    <div style="margin-left: 50px;" class="form-check" *ngFor="let type of studentTypes">
+                        <label class="form-check-label">
+                            <input type="checkbox" (change)="onPreferredStudentsChange(type, $any($event.target)?.checked)" class="form-check-input">
+                            {{type}}
+                        </label>
+                    </div>
+                    
+                    <br>
+
+                    <label><b>Preferred Skills ????</b></label>
+                    <div style="margin-left: 50px;" class="form-check" *ngFor="let type of studentTypes">
+                    </div>
+
+                    <br>
+
+                    <label><b>Interaction Frequency</b></label>
+                    <div style="margin-left: 50px;" class="form-radio" *ngFor="let type of meetingFrequency">
+                        <label class="form-radio-label">
+                            <input type="radio" id="{{type}}" value="{{type}}" formControlName="clientInteractionTimes" class="form-radio-input">
+                            {{type}}
+                        </label>
+                    </div>
+
+                    <br>
+
+                    <label><b>Interaction Type</b></label>
+                    <div style="margin-left: 50px;" class="form-radio" *ngFor="let type of meetingtTypes">
+                        <label class="form-radio-label">
+                            <input type="radio" id="{{type}}" value="{{type}}" formControlName="clientInteractionType" class="form-radio-input">
+                            {{type}}
+                        </label>
+                    </div>
+
+                    <br>
+
+                    <div *ngFor="let x of numSequence(5)">
+                        <label>
+                            <b>ABET Criteria {{x+1}}</b><br>
+                            <h6>Please rate the following statement as it relates to your project: "{{AbetDescriptions[x]}}"</h6>
+                        </label>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="form-radio col-xs-2" *ngFor="let n of numSequence(5)">
+                                <div class="">
+                                    <div>
+                                        <label class="form-radio-label">{{n}}</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="{{n}}" value="{{n}}" formControlName="abet{{x+1}}" class="form-radio-input">    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                    </div>
+
+                    <button id="proposalSubmit" [disabled]="!ProjetcProposalForm.valid" type="submit">Submit Proposal</button>
+                    <ngb-alert *ngIf="proposalSubmitMessage" [animation]="false" [dismissible]="true" [type]="proposalAlertType">{{proposalSubmitMessage}}</ngb-alert>
+                </div>
+          </form>
+        <div class="col-md-4">
+
+        </div>
+    </div>	
+</div>

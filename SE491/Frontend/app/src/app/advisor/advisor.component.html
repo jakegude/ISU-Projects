@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" *ngFor="let team for Teams">
+            <h1>{{ user.name }}</h1>
+            <h3>Team List</h3>
+            <form name="teamform" id="teamform">
+                <label for="teamNumber">Select Team: </label><br>
+                <input list="teamNumbers" name="teamNumber" id="teamNumber" placeholder="Team Number">
+                <datalist id="teamNumbers">
+                    <option value={{ team.name }}></option>
+                </datalist>
+            </form>
+            <div class="row">
+                <div class="col-md-8">
+                    <h4>{{ team.name }}</h4>
+                    <table  class="table table-striped table-condensed">
+                        <tr>
+                            <th>Student First Name</th>
+                            <th>Student Last Name</th>
+                            <th>Student Net ID</th>
+                            <th>Project Name</th>
+                            <th>Team Number</th>
+                        </tr>
+                        <tr *ngFor="let student for team.students">
+                            <td>{{ student.firstName }}</td>
+                            <td>{{ student.lastName }}</td>
+                            <td>{{ student.netID }}</td>
+                            <td>{{ team.project.name }}</td>
+                            <td>{{ team.name }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>	
+</div>
