@@ -1,0 +1,6 @@
+README ####
+
+1) 	my 3rd heuristic is just finding the minimum number of either the manhattan distance or the mismatched tiles.
+	This is an admissible heuristic because both finding the manhattan distance and finding the number mismatched
+	tiles are admissible heuristics so when choosing the minimum number of those 2 would also be admissible.
+	

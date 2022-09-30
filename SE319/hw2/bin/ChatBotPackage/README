@@ -1,0 +1,20 @@
+README
+
+1.	Run "server.java"
+2.	Run "client.java"
+3.	the client will connect to the server 
+4.	Run "client.java" again and multiple clients
+	will connect
+5.	Server then sends "What is your name?" to the  
+	client after connecting to the server
+6.	The client is then to write back their name
+	and that be printed to the Server's terminal
+7.	Server is then sends to the client "What is the access code?"
+8.	Client is then asked to enter the correct access code and 
+	will then gain access to the rest of the server, but
+	if the client enters the wrong access code, they will keep
+	being asked to enter the correct access code
+9.	The server then continuously takes in 
+	messages from the clients and then broadcast them to the 
+	other clients with "CLIENTNAME says: (msg)" and print the message
+	to its terminal with "Message from CLIENTNAME: (msg)"

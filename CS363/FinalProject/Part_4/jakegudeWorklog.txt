@@ -1,0 +1,7 @@
+Jake:
+Week of Nov 16, 2020
+• Designed the ER diagram
+• Designed Database
+• Wrote required SQL queries
+• Developed Java project/program to use SQL Database
+• Tested java code to work with SQL Database

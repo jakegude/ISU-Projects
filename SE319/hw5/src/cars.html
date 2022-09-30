@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Homework 5</title>
+  <style>
+    div{
+        font:15px Verdana;
+        width:450px;
+    }
+    ul {
+        padding:0;
+        margin:2px 5px; 
+        list-style:none; 
+        border:0; 
+        float:left; 
+        width:100%;
+    }
+    li {
+        width:50%; 
+        display:inline-block; 
+    }
+    table, input {
+        text-align:left;
+        font:13px Verdana;
+    }
+    table, td, th 
+    {
+        margin:10px 0;
+        padding:2px 10px;
+    }
+    td, th {
+        border:solid 1px #CCC;
+    }
+    button {
+        font:13px Verdana;
+        padding:3px 5px;
+    }
+</style>
+</head>
+<body>
+  <div ng-app="myApp" ng-controller="carsCtrl" id="display" style="padding:10px 0;">
+	<table>
+    <tr>
+      <th>
+        <select ng-model="selected.make" ng-options="x.make as x.make for x in cars">
+          <option value="">All</option>
+      </select>Make</th>
+      <th>Model</th>
+      <th><input type="button" value="Year" ng-click="orderByMe('year')" ng-Dblclick="orderByMe('-year')">Year</th>
+      <th>Stock</th>
+      <th>Price</th>
+      <th>Option</th>
+    </tr>
+    <tr ng-init="submit()" ng-repeat="car in cars | orderBy:myOrderBy | filter: {make:selected.make}"> 
+      <td><label>{{car.make}}</label></td>
+      <td><label>{{car.model}}</label></td>
+      <td><label>{{car.year}}</label></td>
+      <td><label>{{car.stock}}</label></td>
+      <td><label>{{car.price | currency}}</label></td>
+    <td><input type="button" value="Increment" ng-click="car.stock=car.stock+1"></td>
+    </tr>
+  </table>
+
+  </div>
+
+</body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('carsCtrl', function($scope) {
+      $scope.cars = [
+        {
+          "make":"Toyota",
+          "model":"Rav4",
+          "year":2008,
+          "stock":3,
+          "price":8500
+        },
+
+        {
+          "make":"Toyota",
+          "model":"Camry",
+          "year":2009,
+          "stock":2,
+          "price":6500
+        },
+
+        {
+          "make":"Toyota",
+          "model":"Tacoma",
+          "year":2016,
+          "stock":1,
+          "price":22000
+        },
+
+        {
+          "make":"BMW",
+          "model":"i3",
+          "year":2012,
+          "stock":5,
+          "price":12000
+        },
+
+        {
+          "make":"Chevy",
+          "model":"Malibu",
+          "year":2015,
+          "stock":2,
+          "price":10000
+        },
+
+        {
+          "make":"Honda",
+          "model":"Accord",
+          "year":2013,
+          "stock":1,
+          "price":9000
+        },
+
+        {
+          "make":"Hyundai",
+          "model":"Elantra",
+          "year":2013,
+          "stock":2,
+          "price":7000
+        },
+
+        {
+          "make":"Chevy",
+          "model":"Cruze",
+          "year":2012,
+          "stock":2,
+          "price":5500
+        },
+
+        {
+          "make":"Dodge",
+          "model":"Charger",
+          "year":2013,
+          "stock":2,
+          "price":16000
+        },
+
+        {
+          "make":"Ford",
+          "model":"Mustang",
+          "year":2009,
+          "stock":1,
+          "price":8000
+        },
+
+      ];
+
+      $scope.orderByMe = function(x) {
+        $scope.myOrderBy = x;
+      }
+
+      $scope.submit = function () {
+        var arrCar = [];
+        angular.forEach($scope.cars, function (value) {
+          arrCar.push('make:' + value.make + 
+                      ', model:' + value.model + 
+                      ', year:' + value.year + 
+                      ', stock:' + value.stock + 
+                      ', price:' + value.price);
+        });
+        $scope.display = arrCar;
+      };
+    });
+  </script>
+</html>

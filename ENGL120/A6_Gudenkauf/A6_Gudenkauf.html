@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      A6 by Jake Gudenkauf
+    </title>
+  </head>
+  <body>
+    <h1>
+      English 120 Assignment 6 Chat Bot by Jake Gudenkauf
+    </h1>
+    
+    <p>
+      1. Who is the system designed for? What is its purpose?
+      <div>
+        My system is designed for people who like hip-hop or rap music. It's purpose is dicuss with the chatbot about who is the user's favorite artist and who the user thinks the GOAT is.
+    </p>
+    <p>
+      2. What are some strengths of your design?
+      <div>
+      Some strengths of my design are it's simplicity and ease of use.
+    </p>
+    <p>
+      3. What are some weaknesses of your design? How could these weaknesses be remedied if you had more time/knowledge/etc.?
+      <div>
+      A weakness of my design could also be it's simplicity. Another weakness could be the implementation (by implementation I mean how the computer expects the user the give a correct response to each question, and if the user just types in any random string to some of the questions, the bot will continue the conversation after encountering that random string). These weaknesses could be fixed with more time/knowledge/etc if I had better regular expressions to actually find specific things in longer string that the user said to the bot in order to use that specific thing in the next response from the bot.
+    </p>
+    <p>
+      4. How is “artificial intelligence” utilized in your chatbot? What is meant by the phrase “AI is just a bunch of if/else statements”, and how might this description of AI be insufficient in describing real-life chatbots (e.g., Siri)? (In other words, Siri is far more than “just a bunch of if/else statements”. What else does Siri use to sound “intelligent”?)
+      <div>
+      Artifical intelligence is used in my desgin by using if/else statements. "AI is just a bunch of if/else statements" just means at the base of any AI system, it is using a bunch of if/else statements that are branching off of each other. This is insufficient of describing what AI truly is because AI is a very complex concept and requires more than just if/else statements, but when just describing the logic behind AI this statement would be for the most part correct.
+    </p>
+    <script>
+
+      function respond(response) {
+        // DON'T CHANGE
+        if (response === "stop" || response === "description"){
+          return false;
+        }
+               
+        // CHANGE HERE :)
+        if (users.includes(response)) {
+          response = response.substring(0,1).toUpperCase() + response.substring(1, response.length).toLowerCase();
+          var name = response;
+          response = prompt("Hello " + name + "! I have a question for you! Do you like hip-hop/rap music?");
+         if (/yes/i.test(response)) {
+            response = prompt("Great! Who is your favorite artist in the genre?");
+            if (true){
+              var favArtist = response;
+              response = prompt("If " + favArtist + " is your favorite artist, then who do you think is the GOAT? (aka Greatest Of All Time)");
+              if (true){
+                var goat = response;
+                response = prompt("Why do you believe he/she is the GOAT?");
+                if (goat != favArtist) {
+                  response = prompt("Why do you like " + favArtist + " more if you think " + goat + " is better than " + favArtist + " is?");
+                  if (true) {
+                    response = prompt("I think you're right! I totally agree!")
+                  }
+                } else {
+                  response = prompt("Awesome! You do have some good points, I may have to rethink my view on that artist!")
+                }
+              }
+            }
+          } else {
+            response = prompt("Wow okay " + name + ", you're boring! Tisk tisk :'( ");
+          }
+        } else {
+          response = prompt("Uhh what was that??");
+        }
+
+        // DON'T CHANGE
+        respond(response);
+      }
+
+      var users = ["brody", "jake", "sydney", "jillian", "courtney", "alyssa", "matthew", "zoey", "jace", "adam", "quoc", "abbie"];
+
+
+      // this is the computer's initial greeting; you may put anything you like inside this prompt
+      var response = prompt("Hello! What is your name?\n(type 'stop' or 'description' at any point to stop the chat bot and view the write-up portion of my assignment)");
+      respond(response);
+    </script>
+  </body>
+</html>
